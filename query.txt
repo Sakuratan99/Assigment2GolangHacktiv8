@@ -1,0 +1,14 @@
+	create table orders(
+		Order_Id serial primary key,
+		Customer_Name varchar(50) not null,
+		Ordered_At date
+	)
+
+
+	create table items(
+		Item_Id serial primary key,
+		Item_Code text unique not null,
+		Description varchar(50) not null,
+		Quantity int not null,
+		Order_id integer references orders(Order_Id)
+	)
